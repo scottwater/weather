@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://nominatim.openstreetmap.org/search?format=json&q=Warren%20Township%20New%20Jersey
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - WeatherApp
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 23 Aug 2024 19:24:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '480'
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=20
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOjEzODgwMzQxLCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHA6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoicmVsYXRpb24iLCJvc21faWQiOjk2MzM3NiwibGF0IjoiNDAuNjMwNjU3MTUiLCJsb24iOiItNzQuNTIyNjYzMDg0Nzk1NjgiLCJjbGFzcyI6ImJvdW5kYXJ5IiwidHlwZSI6ImFkbWluaXN0cmF0aXZlIiwicGxhY2VfcmFuayI6MTYsImltcG9ydGFuY2UiOjAuMzUyNzU4MjgyODQ1OTMwMzYsImFkZHJlc3N0eXBlIjoidG93bnNoaXAiLCJuYW1lIjoiV2FycmVuIFRvd25zaGlwIiwiZGlzcGxheV9uYW1lIjoiV2FycmVuIFRvd25zaGlwLCBTb21lcnNldCBDb3VudHksIE5ldyBKZXJzZXksIFVuaXRlZCBTdGF0ZXMiLCJib3VuZGluZ2JveCI6WyI0MC41ODczNTQwIiwiNDAuNjczMzk3MCIsIi03NC41NzY3MzMwIiwiLTc0LjQ0ODU0NDAiXX1d
+  recorded_at: Fri, 23 Aug 2024 19:24:03 GMT
+recorded_with: VCR 6.3.1
