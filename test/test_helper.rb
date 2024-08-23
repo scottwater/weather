@@ -1,6 +1,12 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
+require "vcr"
+
+VCR.configure do |config|
+  config.cassette_library_dir = "test/support/vcr_cassettes"
+  config.hook_into :webmock
+end
 
 module ActiveSupport
   class TestCase
