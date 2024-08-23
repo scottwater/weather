@@ -1,6 +1,6 @@
 class Ip
   include HTTParty
-  base_uri "http://ip-api.com"
+  base_uri "ip-api.com"
 
   IpResponse = Data.define(:data) do
     def ip
