@@ -1,4 +1,4 @@
-class Geocoder
+class GeocoderClient
   include HTTParty
   base_uri "nominatim.openstreetmap.org:443"
   format :json

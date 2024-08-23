@@ -1,4 +1,4 @@
-class Ip
+class IpClient
   include HTTParty
   base_uri "ip-api.com"
 

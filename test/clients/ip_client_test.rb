@@ -1,8 +1,8 @@
 require "test_helper"
-class IpTest < ActiveSupport::TestCase
-  test "Ip#me" do
+class IpClientTest < ActiveSupport::TestCase
+  test "IpClient#me" do
     VCR.use_cassette("ip") do
-      response = Ip.me
+      response = IpClient.me
       assert_equal "72.68.111.45", response.ip
       assert_equal "Warren Township New Jersey, United States", response.location
     end
