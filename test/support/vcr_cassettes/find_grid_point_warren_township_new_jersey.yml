@@ -1,0 +1,214 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.weather.gov/points/40.63065715,-74.52266308479568
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Server:
+      - nginx/1.20.1
+      Content-Type:
+      - application/problem+json
+      Location:
+      - "/points/40.6307,-74.5227"
+      X-Request-Id:
+      - eef14585-9d2c-4b8a-9ba7-d94b0cd4fd91
+      X-Correlation-Id:
+      - 6b722cb
+      X-Server-Id:
+      - vm-lnx-nids-apiapp10.ncep.noaa.gov
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - X-Correlation-Id, X-Request-Id, X-Server-Id
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '481'
+      Cache-Control:
+      - private, must-revalidate, max-age=83527
+      Expires:
+      - Sat, 24 Aug 2024 20:44:08 GMT
+      Date:
+      - Fri, 23 Aug 2024 21:32:01 GMT
+      Connection:
+      - keep-alive
+      X-Edge-Request-Id:
+      - 36bda69
+      Vary:
+      - Accept,Feature-Flags,Accept-Language
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains ; preload
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "correlationId": "6b722cb",
+            "title": "Adjusting Precision Of Point Coordinate",
+            "type": "https://api.weather.gov/problems/AdjustPointPrecision",
+            "status": 301,
+            "detail": "The precision of latitude/longitude points is limited to 4 decimal digits for efficiency. The location attribute contains your request mapped to the nearest supported point. If your client supports it, you will be redirected.",
+            "instance": "https://api.weather.gov/requests/6b722cb"
+        }
+  recorded_at: Fri, 23 Aug 2024 21:32:01 GMT
+- request:
+    method: get
+    uri: https://api.weather.gov/points/40.6307,-74.5227
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.20.1
+      Content-Type:
+      - application/geo+json
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - X-Correlation-Id, X-Request-Id, X-Server-Id
+      X-Request-Id:
+      - 11ee049c-c1f7-412b-8a78-4b213715c20f
+      X-Correlation-Id:
+      - 68f66fe
+      X-Server-Id:
+      - vm-lnx-nids-apiapp9.ncep.noaa.gov
+      Vary:
+      - Accept,Feature-Flags,Accept-Language
+      - Accept-Encoding
+      Cache-Control:
+      - public, max-age=83653, s-maxage=120
+      Expires:
+      - Sat, 24 Aug 2024 20:46:14 GMT
+      Date:
+      - Fri, 23 Aug 2024 21:32:01 GMT
+      Content-Length:
+      - '3098'
+      Connection:
+      - keep-alive
+      X-Edge-Request-Id:
+      - 36bdb1e
+      Strict-Transport-Security:
+      - max-age=31536000 ; includeSubDomains ; preload
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "@context": [
+                "https://geojson.org/geojson-ld/geojson-context.jsonld",
+                {
+                    "@version": "1.1",
+                    "wx": "https://api.weather.gov/ontology#",
+                    "s": "https://schema.org/",
+                    "geo": "http://www.opengis.net/ont/geosparql#",
+                    "unit": "http://codes.wmo.int/common/unit/",
+                    "@vocab": "https://api.weather.gov/ontology#",
+                    "geometry": {
+                        "@id": "s:GeoCoordinates",
+                        "@type": "geo:wktLiteral"
+                    },
+                    "city": "s:addressLocality",
+                    "state": "s:addressRegion",
+                    "distance": {
+                        "@id": "s:Distance",
+                        "@type": "s:QuantitativeValue"
+                    },
+                    "bearing": {
+                        "@type": "s:QuantitativeValue"
+                    },
+                    "value": {
+                        "@id": "s:value"
+                    },
+                    "unitCode": {
+                        "@id": "s:unitCode",
+                        "@type": "@id"
+                    },
+                    "forecastOffice": {
+                        "@type": "@id"
+                    },
+                    "forecastGridData": {
+                        "@type": "@id"
+                    },
+                    "publicZone": {
+                        "@type": "@id"
+                    },
+                    "county": {
+                        "@type": "@id"
+                    }
+                }
+            ],
+            "id": "https://api.weather.gov/points/40.6307,-74.5227",
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.5227,
+                    40.630699999999997
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/points/40.6307,-74.5227",
+                "@type": "wx:Point",
+                "cwa": "PHI",
+                "forecastOffice": "https://api.weather.gov/offices/PHI",
+                "gridId": "PHI",
+                "gridX": 67,
+                "gridY": 110,
+                "forecast": "https://api.weather.gov/gridpoints/PHI/67,110/forecast",
+                "forecastHourly": "https://api.weather.gov/gridpoints/PHI/67,110/forecast/hourly",
+                "forecastGridData": "https://api.weather.gov/gridpoints/PHI/67,110",
+                "observationStations": "https://api.weather.gov/gridpoints/PHI/67,110/stations",
+                "relativeLocation": {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                            -74.575794000000002,
+                            40.602946000000003
+                        ]
+                    },
+                    "properties": {
+                        "city": "Martinsville",
+                        "state": "NJ",
+                        "distance": {
+                            "unitCode": "wmoUnit:m",
+                            "value": 5441.2746424741999
+                        },
+                        "bearing": {
+                            "unitCode": "wmoUnit:degree_(angle)",
+                            "value": 55
+                        }
+                    }
+                },
+                "forecastZone": "https://api.weather.gov/zones/forecast/NJZ010",
+                "county": "https://api.weather.gov/zones/county/NJC035",
+                "fireWeatherZone": "https://api.weather.gov/zones/fire/NJZ010",
+                "timeZone": "America/New_York",
+                "radarStation": "KDIX"
+            }
+        }
+  recorded_at: Fri, 23 Aug 2024 21:32:01 GMT
+recorded_with: VCR 6.3.1
