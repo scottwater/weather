@@ -228,6 +228,8 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.9)
       io-console (~> 0.5)
+    requestjs-rails (0.0.11)
+      railties (>= 6.1.0)
     rexml (3.3.6)
       strscan
     rubocop (1.65.1)
@@ -268,6 +270,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    solid_cache (1.0.1)
+      activejob (>= 7.2)
+      activerecord (>= 7.2)
+      railties (>= 7.2)
     sqlite3 (2.0.4-aarch64-linux-gnu)
     sqlite3 (2.0.4-aarch64-linux-musl)
     sqlite3 (2.0.4-arm-linux-gnu)
@@ -356,8 +362,10 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 7.2.1)
   redis (>= 4.0.1)
+  requestjs-rails
   rubocop-rails-omakase
   selenium-webdriver
+  solid_cache
   sqlite3 (>= 1.4)
   stimulus-rails
   tailwindcss-rails
