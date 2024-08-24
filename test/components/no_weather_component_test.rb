@@ -3,10 +3,10 @@
 require "test_helper"
 
 class NoWeatherComponentTest < ViewComponent::TestCase
-  def test_component_renders_something_useful
-    # assert_equal(
-    #   %(<span>Hello, components!</span>),
-    #   render_inline(NoWeatherComponent.new(message: "Hello, components!")).css("span").to_html
-    # )
+  test "displays the 404 message" do
+    render_inline(NoWeatherComponent.new(address: "bad"))
+    assert_text(/sorry/i)
+    assert_text(/404/)
+
   end
 end
