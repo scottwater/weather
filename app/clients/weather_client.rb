@@ -28,7 +28,7 @@ class WeatherClient
     def temperature_unit = period&.dig("temperatureUnit")
     def temperature_trend = period&.dig("temperatureTrend")
     def probability_of_precipitation = period&.dig("probabilityOfPrecipitation", "value") || 0
-    def precipitation? = probability_of_precipitation.zero?
+    def precipitation? = !probability_of_precipitation.zero?
     def wind_speed = period&.dig("windSpeed")
     def wind_direction = period&.dig("windDirection")
     def icon = period&.dig("icon")&.split("?")&.first
