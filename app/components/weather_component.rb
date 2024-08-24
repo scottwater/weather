@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class WeatherComponent < ApplicationViewComponent
+  include LocalTimeHelper
 
   def initialize(address:, periods:)
     @address = address
@@ -10,6 +11,4 @@ class WeatherComponent < ApplicationViewComponent
   def requires_initial_offset?(index)
     index == 0 && @periods&.first&.name == 'Tonight'
   end
-
-
 end

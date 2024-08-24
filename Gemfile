@@ -64,7 +64,7 @@ group :test do
   gem "webmock"
 end
 gem "view_component"
-
+gem "local_time"
 group :development, :test do
 end
 
