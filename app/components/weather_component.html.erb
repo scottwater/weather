@@ -1,4 +1,4 @@
-<div>
+<div data-controller="transition-results">
   <h2 class="text-2xl font-bold mb-4">Weather for: <%= @address %></h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
   <% @periods.each_with_index do |period, index| %>
@@ -16,6 +16,6 @@
     <% end %>
   <% end %>
   </div>
-</div>
 <%= render(UpdatedAtComponent.new) %>
+</div>
 
