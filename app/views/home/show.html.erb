@@ -1,4 +1,6 @@
-
+<div class="mx-auto my-16">
+  <%= render(SearchBoxComponent.new(params[:address])) %>
+</div>
 
 <turbo-frame id="load_weather" src="<%= forecast_path(params[:address]) %>">
   <%= render(SpinnerComponent.new("Looking up weather for #{params[:address]}...")) %>
