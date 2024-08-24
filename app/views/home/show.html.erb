@@ -1,1 +1,5 @@
-<h1>The Weather for <%= params[:address] %></h1>
+
+
+<turbo-frame id="load_weather" src="<%= forecast_path(params[:address]) %>">
+  <%= render(SpinnerComponent.new("Looking up weather for #{params[:address]}...")) %>
+</turbo-frame>

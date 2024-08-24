@@ -25,15 +25,15 @@ class WeatherClient
     def name = period&.dig("name")
     def isDayTime? = period&.dig("isDayTime")
     def temperature = period&.dig("temperature")
-    def temperatureUnit = period&.dig("temperatureUnit")
-    def temperatureTrend = period&.dig("temperatureTrend")
-    def probabilityOfPrecipitation = period&.dig("probabilityOfPrecipitation", "value") || 0
-    def precipitation? = !probabilityOfPrecipitation.zero?
-    def windSpeed = period&.dig("windSpeed")
-    def windDirection = period&.dig("windDirection")
-    def icon = period&.dig("icon")
-    def shortForecast = period&.dig("shortForecast")
-    def detailedForecast = period&.dig("detailedForecast")
+    def temperature_unit = period&.dig("temperatureUnit")
+    def temperature_trend = period&.dig("temperatureTrend")
+    def probability_of_precipitation = period&.dig("probabilityOfPrecipitation", "value") || 0
+    def precipitation? = probability_of_precipitation.zero?
+    def wind_speed = period&.dig("windSpeed")
+    def wind_direction = period&.dig("windDirection")
+    def icon = period&.dig("icon")&.split("?")&.first
+    def short_forecast = period&.dig("shortForecast")
+    def detailed_forecast = period&.dig("detailedForecast")
   end
 
   def self.periods_by_grid_point(grid, type_of_point: "forecast")
