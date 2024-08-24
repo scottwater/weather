@@ -62,6 +62,7 @@ group :test do
   gem "selenium-webdriver"
   gem "vcr"
   gem "webmock"
+  gem 'mocha'
 end
 gem "view_component"
 gem "local_time"
