@@ -2,12 +2,12 @@
   <h2 class="text-2xl font-bold mb-4">Weather for: <%= @address %></h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
   <% @periods.each_with_index do |period, index| %>
-    <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
       <div class="flex flex-col w-full">
         <img class="object-cover w-full h-48 lg:h-72 rounded-t-lg" src="<%= period.icon %>?size=medium" alt="">
         <div class="flex flex-col justify-between p-4 leading-normal">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= period.name %></h5>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= period.detailed_forecast %></p>
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"><%= period.name %></h5>
+          <p class="mb-3 font-normal text-gray-700"><%= period.detailed_forecast %></p>
         </div>
       </div>
     </div>
