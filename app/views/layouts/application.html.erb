@@ -25,7 +25,6 @@
     <main class="flex-grow container mx-auto px-5 py-8">
       <%= yield %>
     </main>
-    <footer class="border-t border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-      <p>FOOTER!</p>
+    <%= render(FooterComponent.new) %>
   </body>
 </html>
