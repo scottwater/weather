@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lat: "40.63"
+  lon: "-74.52"
+  grid_id: MyString
+  grid_x: MyString
+  grid_y: MyString
+
+two:
+  lat: "40.90"
+  lon: "-74.90"
+  grid_id: MyString
+  grid_x: MyString
+  grid_y: MyString

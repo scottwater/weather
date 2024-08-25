@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_25_153039) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_25_230538) do
   create_table "coordinates", force: :cascade do |t|
     t.text "address", null: false
     t.string "lat", null: false
@@ -18,6 +18,17 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_25_153039) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address"], name: "index_coordinates_on_address", unique: true
+  end
+
+  create_table "grid_points", force: :cascade do |t|
+    t.string "lat", null: false
+    t.text "lon", null: false
+    t.string "grid_id", null: false
+    t.string "grid_x", null: false
+    t.string "grid_y", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lat", "lon"], name: "index_grid_points_on_lat_and_lon", unique: true
   end
 
   create_table "ip_addresses", force: :cascade do |t|
