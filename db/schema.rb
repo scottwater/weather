@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_23_200103) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_25_151634) do
+  create_table "ip_addresses", force: :cascade do |t|
+    t.string "ip", null: false
+    t.text "address", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ip"], name: "index_ip_addresses_on_ip", unique: true
+  end
+
   create_table "solid_cache_entries", force: :cascade do |t|
     t.binary "key", limit: 1024, null: false
     t.binary "value", limit: 536870912, null: false

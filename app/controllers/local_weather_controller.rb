@@ -6,9 +6,9 @@ class LocalWeatherController < ApplicationController
       # This will fail silently and get logged in the console
       render plain: "No local weather could be inferred for this request", status: :not_found
     end
-end
+  end
 
-private
+  private
 
   LocalWeather = Data.define(:period, :address)
   def fetch_local_weather(ip_address)
