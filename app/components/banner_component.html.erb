@@ -1,0 +1,19 @@
+<div data-controller="you-got-weather" id="sticky-banner" tabindex="-1" class="hidden border-t fixed top-16 start-0 z-50 flex justify-between w-full p-4 border-b border-gray-200 bg-yellow-100">
+    <div class="flex items-center mx-auto">
+        <p class="flex items-center text-sm font-normal text-gray-500">
+            <span class="inline-flex p-1 me-3 bg-gray-200 rounded-full dark:bg-gray-600 w-6 h-6 items-center justify-center flex-shrink-0">
+                <svg class="w-3 h-3 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thermometer"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+                <span class="sr-only">Light bulb</span>
+            </span>
+            <span id="local_weather"></span>
+        </p>
+    </div>
+    <div class="flex items-center">
+        <button data-action="you-got-weather#hide" type="button" class="flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+            </svg>
+            <span class="sr-only">Close banner</span>
+        </button>
+    </div>
+</div>

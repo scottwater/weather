@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   get "/forecast/:address" => "forecast#show", as: :forecast
   get "/weather" => "home#show", as: :weather
+  post "local-weather" => "local_weather#create", as: :local_weather
   root "home#index"
 end

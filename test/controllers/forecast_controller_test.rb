@@ -1,10 +1,9 @@
 require "test_helper"
-
+require "support/weather_data_helpers"
 class ForecastControllerTest < ActionDispatch::IntegrationTest
+  include WeatherDataHelpers
   test "should get weather for valid address" do
-    raw_data = JSON.parse(File.read("test/support/weather_warren.json"))
-    periods = raw_data.map {|k,v| WeatherClient::GridPeriod.new(k["period"])}
-    ForecastController.any_instance.stubs(:fetch_periods_for_address).returns(periods)
+    ForecastController.any_instance.stubs(:fetch_periods_for_address).returns(sample_weather_data)
 
     get forecast_path("Warren Township, NJ"), xhr: true
     assert_response :success
