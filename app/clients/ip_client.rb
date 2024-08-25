@@ -1,4 +1,5 @@
 class IpClient < ApplicationClient
+  # SSL requires a paid plan for this API
   base_uri "ip-api.com"
 
   IpResponse = Data.define(:data) do

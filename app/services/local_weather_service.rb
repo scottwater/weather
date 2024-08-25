@@ -5,6 +5,8 @@ class LocalWeatherService
   end
 
   def weather
+    # Falling back on .me is mostly just for testing. This will essentially
+    # default to the server address which might be useful in development
     @address = IpClient.lookup(ip_address)&.location || IpClient.me&.location
     Rails.logger.info "Looking up weather for location: #{address}"
     if address

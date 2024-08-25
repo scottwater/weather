@@ -1,6 +1,6 @@
 class ForecastController < ApplicationController
   def show
-     weather_component_html = Rails.cache.fetch("weather_#{params[:address]}", expires_in: 5.minutes) do
+     weather_component_html = Rails.cache.fetch("weather_#{params[:address]}", expires_in: 30.minutes) do
       compontent = component_for_address(params[:address])
       compontent.render_in(view_context)
     end

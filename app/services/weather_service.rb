@@ -1,3 +1,5 @@
+# Executes the various client apis we rely on to convert an
+# address into a weather forecast
 class WeatherService
   attr_reader :address
 
