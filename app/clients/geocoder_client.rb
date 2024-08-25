@@ -4,16 +4,16 @@ class GeocoderClient < ApplicationClient
 
 
   Coordinates = Data.define(:data) do
-    def latitude
+    def lat
       data&.dig(0, "lat")
     end
 
-    def longitude
+    def lon
       data&.dig(0, "lon")
     end
 
     def valid?
-      latitude && longitude
+      lat && lon
     end
   end
 

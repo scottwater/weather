@@ -9,12 +9,12 @@ class WeatherClient < ApplicationClient
   end
 
   def self.find_grid_point(coordinates)
-    point_path = "/points/#{coordinates.latitude},#{coordinates.longitude}"
+    point_path = "/points/#{coordinates.lat},#{coordinates.lon}"
     response = self.get(point_path)
     if response.ok?
       GridPoint.new(response)
     else
-      Rails.logger.error("Failed to find grid point for #{coordinates.latitude}, #{coordinates.longitude} - #{response.code}")
+      Rails.logger.error("Failed to find grid point for #{coordinates.lat}, #{coordinates.lon} - #{response.code}")
       nil
     end
   end
