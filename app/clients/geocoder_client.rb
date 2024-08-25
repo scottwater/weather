@@ -2,7 +2,6 @@ class GeocoderClient < ApplicationClient
   base_uri "nominatim.openstreetmap.org:443"
   format :json
 
-
   Coordinates = Data.define(:data) do
     def lat
       data&.dig(0, "lat")
@@ -18,7 +17,7 @@ class GeocoderClient < ApplicationClient
   end
 
   def self.coordinates(address)
-    response = self.get("/search", query: { q: address, format: "json" }, headers: { "User-Agent" => "WeatherApp" })
+    response = get("/search", query: {q: address, format: "json"}, headers: {"User-Agent" => "WeatherApp"})
     Coordinates.new(response)
   end
 end
