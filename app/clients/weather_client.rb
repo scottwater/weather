@@ -1,5 +1,4 @@
-class WeatherClient
-  include HTTParty
+class WeatherClient < ApplicationClient
   base_uri "api.weather.gov:443"
   format :json
 

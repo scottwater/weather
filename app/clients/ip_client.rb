@@ -1,5 +1,4 @@
-class IpClient
-  include HTTParty
+class IpClient < ApplicationClient
   base_uri "ip-api.com"
 
   IpResponse = Data.define(:data) do
