@@ -14,7 +14,11 @@ class WeatherService
   private
 
   def coordinates
-    @coordinates ||= find_or_create_coordinate(address)
+    if !defined?(@coordinates)
+      Rails.logger.info "Looking up weather for coordinates for #{address}"
+      @coordinates = CoordinatesService.new(address).call
+    end
+    @coordinates
   end
 
   def grid_point
@@ -33,19 +37,6 @@ class WeatherService
     end
 
     @periods
-  end
-
-  def find_or_create_coordinate(address)
-    Coordinate.find_by_normalized_address(address) || begin
-      GeocoderClient.coordinates(address).tap do |geo_coordinates|
-        if geo_coordinates.valid?
-          Rails.logger.info "Creating coordinate for #{address} - #{geo_coordinates.lat}, #{geo_coordinates.lon}"
-          Coordinate.create!(address: address, lat: geo_coordinates.lat, lon: geo_coordinates.lon)
-        else
-          Rails.logger.error "Failed to create coordinate for #{address}"
-        end
-      end
-    end
   end
 
   def find_or_create_grid_point(coordinates)
