@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://ip-api.com/json/72.68.111.45
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 25 Aug 2024 02:54:25 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '305'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Ttl:
+      - '60'
+      X-Rl:
+      - '44'
+    body:
+      encoding: UTF-8
+      string: '{"status":"success","country":"United States","countryCode":"US","region":"NJ","regionName":"New
+        Jersey","city":"Warren Township","zip":"07059","lat":40.608,"lon":-74.5265,"timezone":"America/New_York","isp":"Verizon
+        Business","org":"Verizon Business","as":"AS701 Verizon Business","query":"72.68.111.45"}'
+  recorded_at: Sun, 25 Aug 2024 02:54:25 GMT
+recorded_with: VCR 6.3.1
