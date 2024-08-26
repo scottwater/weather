@@ -8,6 +8,8 @@ I wanted to ensure you could download the code and just run it, without the need
 
 ## Set up
 
+This app was built and tested with Ruby 3.3.0, but it should work with any version of Ruby 3.1+. The version of is specified in the .ruby-version file.
+
 1. Clone the Repo: `git clone https://github.com/scottwater/weather`
 1. Run `bin/setup`
 1. Run `bin/dev`
