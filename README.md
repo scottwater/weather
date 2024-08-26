@@ -48,7 +48,7 @@ As an attempt to make things interesting for new visitors, we try and look up th
 
 With my chosen path to find the weather, there are three steps involved:
 
-1. Take the address and find longitude and latitude.
+1. Take the address and find lon and lat.
 2. Convert the lon and lat to a set of grid points needed for the weather API
 3. Use the grid points to query for the forecast for this address/location
 
