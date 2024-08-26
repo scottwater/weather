@@ -1,6 +1,6 @@
 class LocalWeatherController < ApplicationController
   def create
-    if (local_weather = fetch_local_weather(request.remote_ip))
+    if (local_weather = fetch_local_weather(client_ip))
       render turbo_stream: turbo_stream.replace("local_weather", LocalWeatherComponent.new(period: local_weather.period, address: local_weather.address))
     else
       # This will fail silently and get logged in the console
