@@ -1,8 +1,9 @@
 class GridPointService
   attr_reader :coordinates
 
-  def initialize(coordinates)
+  def initialize(coordinates, weather_client: WeatherClient)
     @coordinates = coordinates
+    @weather_client = weather_client
   end
 
   def call
@@ -12,7 +13,7 @@ class GridPointService
   private
 
   def query_grid_point_client
-    WeatherClient.find_grid_point(coordinates).tap do |grid_point|
+    @weather_client.find_grid_point(coordinates).tap do |grid_point|
       log_grid_point_client_response(grid_point)
     end
   end
