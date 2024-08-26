@@ -9,6 +9,6 @@ class WeatherComponent < ApplicationViewComponent
   end
 
   def requires_initial_offset?(index)
-    index == 0 && @periods&.first&.name == 'Tonight'
+    index == 0 && @periods&.first&.name == "Tonight"
   end
 end

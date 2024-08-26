@@ -9,5 +9,4 @@ class SearchBoxComponentTest < ViewComponent::TestCase
     assert_selector("input[name='address']")
     assert_selector("form[action='#{weather_path}']")
   end
-
 end

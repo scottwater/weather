@@ -16,11 +16,11 @@ class IpClient < ApplicationClient
     # If we do not pass an IP Address to the API
     # it will return the current requesting IP
     # and related location info
-    IpResponse.new(self.get("/json"))
+    IpResponse.new(get("/json"))
   end
 
   def self.lookup(ip_address)
-    response = self.get("/json/#{ip_address}")
+    response = get("/json/#{ip_address}")
     if response["status"] == "success"
       IpResponse.new(response)
     end
