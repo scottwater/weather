@@ -1,30 +1,29 @@
 class LocalWeatherService
-  attr_reader :ip_address, :address
-  def initialize(ip_address)
+  attr_reader :ip_address
+
+  def initialize(ip_address, weather_service: WeatherService, ip_client: IpClient)
     @ip_address = ip_address
+    @weather_service = weather_service
+    @ip_client = ip_client
     Rails.logger.info "Looking up weather for IP: #{ip_address}"
   end
 
   def call
-    # Falling back on .me is mostly just for testing. This will essentially
-    # default to the server address which might be useful in development
-    @address = find_address
-    Rails.logger.info "Looking up weather for location: #{address}"
-    if address
-      WeatherService.new(address).call&.first
-    end
+    @weather_service.new(address)&.call&.first
+  end
+
+  def address
+    @address ||= find_address
   end
 
   private
 
   def find_address
-    if (ipa = IpAddress.find_by(ip: ip_address))
-      ipa.address
-    else
-      Rails.logger.info "Looking up weather for location: #{address}"
-      (IpClient.lookup(ip_address)&.location || IpClient.me&.location).tap do |address|
-        IpAddress.create(ip: ip_address, address: address) if address
-      end
-    end
+    return IpAddress.find_by(ip: ip_address)&.address if IpAddress.exists?(ip: ip_address)
+
+    Rails.logger.info "Looking up location for IP: #{ip_address}"
+    address = @ip_client.lookup(ip_address)&.location || @ip_client.me&.location
+    IpAddress.create(ip: ip_address, address: address) if address
+    address
   end
 end
