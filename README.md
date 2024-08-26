@@ -1,5 +1,7 @@
 # README
 
+Try it here: [Weather App](https://weather.scottw.com)
+
 This is a sample Weather app. You should be able to type in an address and get a detailed weather report for the next week or so.
 
 I wanted to ensure you could download the code and just run it, without the need to set up environment variables and/or sign up for a 3rd party service (like Google's address service). Because of this goal, I am not able to cache at the zip code and instead chose to cache at the address.
@@ -58,6 +60,14 @@ There are separate client libraries (app/clients) for each service used. There a
 2. LocalWeatherService - takes an IP address, looks up the address, and then invokes the WeatherService.
 
 Similar to ViewComponents, I like this approach of breaking down the clients individually. This allows them to be tested and then rolling them up in service objects to complete higher-level tasks.
+
+## Deployment
+
+This app uses SQLite for caching address and geo-related content. It also utilizes Solid Cache (which is SQLite-based) to store weather results for addresses. To ensure your SQLite database is stored in a persisted location, you must set the `DATABASE_PATH` environment variable.
+
+Example:
+
+`DATABASE_PATH="storage/dbs/mydb.sqlite3"`
 
 ## Future Improvements
 
