@@ -16,7 +16,7 @@ development:
 # Not ideal to use the same database, but trying to keep this as siimple as possible
 cache:
   <<: *default
-  database: storage/<%= Rails.env %>.sqlite3
+  database: <%= ENV.fetch("DATABASE_PATH", "storage/#{Rails.env}.sqlite3") %>
 
 test:
   <<: *default
@@ -24,4 +24,4 @@ test:
 
 production:
   <<: *default
-  # database: path/to/persistent/storage/production.sqlite3
+  database: <%= ENV["DATABASE_PATH"] %>
