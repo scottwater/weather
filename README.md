@@ -6,7 +6,7 @@ I wanted to ensure you could download the code and just run it, without the need
 
 ## Set up
 
-1. Clone the Repo: `git clone <repo_url>`
+1. Clone the Repo: `git clone https://github.com/scottwater/weather`
 1. Run `bin/setup`
 1. Run `bin/dev`
 
