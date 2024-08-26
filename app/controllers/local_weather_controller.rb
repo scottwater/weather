@@ -14,7 +14,7 @@ class LocalWeatherController < ApplicationController
   def fetch_local_weather(ip_address)
     Rails.cache.fetch("local#{ip_address}", expires_in: 5.minutes) do
       local_weather_service = LocalWeatherService.new(ip_address)
-      period = local_weather_service.weather
+      period = local_weather_service.call
       if period
         LocalWeather.new(period:, address: local_weather_service.address)
       end

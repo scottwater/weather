@@ -5,13 +5,13 @@ class LocalWeatherService
     Rails.logger.info "Looking up weather for IP: #{ip_address}"
   end
 
-  def weather
+  def call
     # Falling back on .me is mostly just for testing. This will essentially
     # default to the server address which might be useful in development
     @address = find_address
     Rails.logger.info "Looking up weather for location: #{address}"
     if address
-      WeatherService.new(address).weather&.first
+      WeatherService.new(address).call&.first
     end
   end
 

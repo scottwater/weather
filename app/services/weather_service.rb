@@ -7,7 +7,7 @@ class WeatherService
     @address = address
   end
 
-  def weather
+  def call
     periods
   end
 
