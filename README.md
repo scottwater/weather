@@ -63,4 +63,3 @@ Similar to ViewComponents, I like this approach of breaking down the clients ind
 
 1. My initial plan was to push the forecast lookups to a background job. However, they consistently returned very quickly and that seemed like unnecessary overhead.
 2. The images supplied by the weather API are a nice touch, but I suspect there are nicer options available that would render nicer.
-3. While I am not caching by ZipCode, there is an opportunity to cache some data in database tables that does not change. An address is always going to have the same lat, lon, and grid points. A table for each of them would save the extra requests made in WeatherService.
