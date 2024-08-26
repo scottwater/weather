@@ -1,8 +1,9 @@
 class CoordinatesService
   attr_reader :address
 
-  def initialize(address)
+  def initialize(address, geocoder_client: GeocoderClient)
     @address = address
+    @geocoder_client = geocoder_client
   end
 
   def call
@@ -12,7 +13,7 @@ class CoordinatesService
   private
 
   def query_geocoder
-    GeocoderClient.coordinates(address).tap do |geo_coordinates|
+    @geocoder_client.coordinates(address).tap do |geo_coordinates|
       log_geocoder_response(geo_coordinates)
     end
   end

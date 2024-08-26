@@ -3,45 +3,50 @@ require "test_helper"
 class CoordinatesServiceTest < ActiveSupport::TestCase
   setup do
     @address = "Basking Ridge, NJ"
-    @service = CoordinatesService.new(@address)
+    @mock_geocoder_client = Minitest::Mock.new
+    @service = CoordinatesService.new(@address, geocoder_client: @mock_geocoder_client)
     @mock_coordinates = Struct.new(:lat, :lon, :valid?).new("40.7066", "-74.5499", true)
   end
 
   test "fetches coordinates from geocoder when not in database" do
     assert_nil Coordinate.find_by_normalized_address(@address)
 
-    GeocoderClient.expects(:coordinates).with(@address).returns(@mock_coordinates)
+    @mock_geocoder_client.expect(:coordinates, @mock_coordinates, [@address])
 
-    result = @service.call
+    assert_difference "Coordinate.count", 1 do
+      result = @service.call
 
-    assert_equal @mock_coordinates, result
-    assert_not_nil Coordinate.find_by_normalized_address(@address)
+      assert_equal @mock_coordinates, result
+      assert Coordinate.exists?(address: @address, lat: @mock_coordinates.lat, lon: @mock_coordinates.lon)
+    end
 
-    stored_coordinate = Coordinate.find_by_normalized_address(@address)
-    assert_equal @mock_coordinates.lat, stored_coordinate.lat
-    assert_equal @mock_coordinates.lon, stored_coordinate.lon
+    @mock_geocoder_client.verify
   end
 
   test "returns coordinates from database when already exist" do
-    Coordinate.create!(address: @address, lat: @mock_coordinates.lat, lon: @mock_coordinates.lon)
+    existing_coordinate = Coordinate.create!(address: @address, lat: @mock_coordinates.lat, lon: @mock_coordinates.lon)
 
-    GeocoderClient.expects(:coordinates).never
+    assert_no_difference "Coordinate.count" do
+      result = @service.call
 
-    result = @service.call
+      assert_equal existing_coordinate, result
+    end
 
-    assert_instance_of Coordinate, result
-    assert_equal @mock_coordinates.lat, result.lat
-    assert_equal @mock_coordinates.lon, result.lon
+    @mock_geocoder_client.verify
   end
 
   test "logs error when geocoder fails" do
     assert_nil Coordinate.find_by_normalized_address(@address)
 
     invalid_coordinates = Struct.new(:valid?).new(false)
-    GeocoderClient.expects(:coordinates).with(@address).returns(invalid_coordinates)
-    result = @service.call
+    @mock_geocoder_client.expect(:coordinates, invalid_coordinates, [@address])
 
-    assert_equal invalid_coordinates, result
-    assert_nil Coordinate.find_by_normalized_address(@address)
+    assert_no_difference "Coordinate.count" do
+      result = @service.call
+
+      assert_equal invalid_coordinates, result
+    end
+
+    @mock_geocoder_client.verify
   end
 end
