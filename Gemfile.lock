@@ -274,7 +274,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     smart_properties (1.17.0)
-    solid_cache (1.0.2)
+    solid_cache (1.0.4)
       activejob (>= 7.2)
       activerecord (>= 7.2)
       railties (>= 7.2)
