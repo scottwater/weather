@@ -241,7 +241,7 @@ GEM
     redis-client (0.22.2)
       connection_pool
     regexp_parser (2.9.2)
-    reline (0.5.9)
+    reline (0.5.10)
       io-console (~> 0.5)
     requestjs-rails (0.0.11)
       railties (>= 6.1.0)
@@ -274,7 +274,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     smart_properties (1.17.0)
-    solid_cache (1.0.2)
+    solid_cache (1.0.5)
       activejob (>= 7.2)
       activerecord (>= 7.2)
       railties (>= 7.2)
